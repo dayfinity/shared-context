@@ -62,3 +62,23 @@ def workflow():
     print("Hash:", h)
     print("Signature:", sig)
     print("Valid:", valid)
+
+    return memory, fs, h
+
+def export(fs):
+    print("\nExported File:")
+    print(fs.read("contract.json"))
+
+def inspect(memory):
+    print("\nMemory Dump:")
+    for k, v in memory.data.items():
+        print(k, v)
+
+def main():
+    memory, fs, h = workflow()
+    export(fs)
+    inspect(memory)
+    print("Done")
+
+if __name__ == "__main__":
+    main()
